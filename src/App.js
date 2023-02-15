@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import SpinnerComponent from './components/SpinnerComponent';
+import Checkout from './components/Checkout';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import BoardMember from './pages/BoardMember';
+// import RendomForm from './components/RendomForm';
+import {
+  BrowserRouter as
+  Router,
+  Route,
+  Routes
+} from "react-router-dom";
+import NewForm from './pages/NewForm';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+        <Router>
+            <SpinnerComponent />
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home/>}/>
+              <Route path="/checkout" element={<Checkout/>}/>
+              <Route path="/login" element={<Login/>}/>
+              <Route path="/register" element={<Register/>}/>
+              <Route path="/board-member" element={<BoardMember/>}/>
+              <Route path="/new-form" element={<NewForm/>}/>
+            </Routes>
+            <Footer/>
+        </Router>
+    </>
   );
 }
 
