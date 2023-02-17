@@ -1,4 +1,4 @@
-import { INCREASE, DECREASE } from "../types";
+import { INCREASE, DECREASE,SETVALUE } from "../types";
 
 export const cartReducer = (state = {}, action) => {
     const productID = action.payload;
@@ -18,6 +18,11 @@ export const cartReducer = (state = {}, action) => {
             return ({
                 ...state,
                 [productID]:quantity
+            });
+            case SETVALUE:
+            return ({
+                ...state,
+                [productID]: state[productID] ? state[productID] : ''
             });
         default:
             return state;

@@ -16,6 +16,7 @@ import {
   Routes
 } from "react-router-dom";
 import NewForm from './pages/NewForm';
+import ProductDetail from './pages/ProductDetail';
 function App() {
   return (
     <>
@@ -24,6 +25,7 @@ function App() {
             <Header />
             <Routes>
               <Route path="/" element={<Home/>}/>
+              <Route path="/products/:id" element={<ProductDetail/>}/>
               <Route path="/checkout" element={<Checkout/>}/>
               <Route path="/login" element={<Login/>}/>
               <Route path="/register" element={<Register/>}/>

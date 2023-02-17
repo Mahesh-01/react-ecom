@@ -1,8 +1,7 @@
 import NetworkService from "../../services/NetworkService";
-import { ALL_PRODUCTS, LOADING_STATE, SEARCH_PRODUCTS } from "../types";
+import { ALL_PRODUCTS, LOADING_STATE, SEARCH_PRODUCTS, PRODUCT_DETAIL } from "../types";
 
 export const getAllProducts = () => (dispatch) => {
-
   dispatch({
     type: LOADING_STATE,
     payload: true
