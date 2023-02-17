@@ -1,5 +1,4 @@
 import { ALL_PRODUCTS } from "../types";
-import { SEARCH_PRODUCTS } from "../types";
 
 export const productReducer = (state = {products:[]}, action) => {
   switch (action.type) {
@@ -8,7 +7,6 @@ export const productReducer = (state = {products:[]}, action) => {
         ...state,
         products:action.payload
       };
-    
     default:
       return state;
   }

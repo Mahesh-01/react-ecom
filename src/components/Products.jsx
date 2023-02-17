@@ -4,10 +4,14 @@ import Col from 'react-bootstrap/Col';
 import Badge from 'react-bootstrap/Badge';
 
 import CartButton from './CartButton';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from '../redux/actions/productActions';
 import { useEffect } from "react";
+import { setValue } from '../redux/actions/cartActions';
+
 
 
 const Products = () => {
@@ -20,6 +24,9 @@ const Products = () => {
     }, [dispatch]);
 
     const data = searchTerm?products.filter(p=>p.name.toLowerCase().includes(searchTerm.toLowerCase())):products;
+
+ 
+
     return (
         <Row className="my-4 g-4">
             {data.map(prd => (
@@ -37,7 +44,9 @@ const Products = () => {
                             <Card.Text>₹ {prd.price} <s>₹ {prd.discountPercentage}</s></Card.Text>
 
                             <CartButton productId={prd.id}/>
-                            
+                            <Button variant="dark">
+                                <Link onClick={e => dispatch(setValue(prd.id))}  to={`/products/${prd.id}`}>View</Link>
+                            </Button>
                         </Card.Body>
                     </Card>
                 </Col>
